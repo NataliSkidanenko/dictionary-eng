@@ -13,7 +13,7 @@ const Word = ({searchWord}) => {
     ) : (
         <>
             <section>
-                <h1 className="text-gray-700 font-bold text-4xl md:text-6xl my-8 ">
+                <h1 className="text-gray-700 font-bold font-serif text-4xl md:text-6xl my-8 ">
                     {word.toLowerCase()}
                 </h1>
                 {info.pronunciations &&
