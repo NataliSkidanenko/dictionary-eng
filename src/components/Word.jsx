@@ -75,8 +75,8 @@ const Word = ({searchWord}) => {
             </section>
             <section className="my-10 py-4">
                 {info.lexemes.length > 0 &&
-                    info.lexemes.map(({partOfSpeech, senses, antonymSets, synonymSets}) => (
-                        <>
+                    info.lexemes.map(({partOfSpeech, senses, antonymSets, synonymSets}, index) => (
+                        <div key={index}>
                             <h2 className="heading font-bold text-xl flex items-center">
                                 <span className="mr-4">{partOfSpeech}</span>
                                 <hr className="w-full h-px border-gray-200" />
@@ -85,8 +85,10 @@ const Word = ({searchWord}) => {
                                 <>
                                     <p className="text-gray-300 mt-6 mb-2">Meaning</p>
                                     <ul className="list-disc list-inside px-4 my-4">
-                                        {senses.map(({definition}) => (
-                                            <li className="my-2">{definition}</li>
+                                        {senses.map(({definition}, index) => (
+                                            <li key={index} className="my-2">
+                                                {definition}
+                                            </li>
                                         ))}
                                     </ul>
                                 </>
@@ -95,8 +97,8 @@ const Word = ({searchWord}) => {
                                 <>
                                     <p className="text-gray-300 mt-6 mb-2">Synonyms</p>
                                     <ul className="list-disc list-inside px-4 my-4">
-                                        {synonymSets.map(({synonyms, sense}) => (
-                                            <li className="my-2">
+                                        {synonymSets.map(({synonyms, sense}, index) => (
+                                            <li key={index} className="my-2">
                                                 <span className="text-gray-400">{sense}: </span>
                                                 <span>{synonyms.join(', ')}</span>
                                             </li>
@@ -108,8 +110,8 @@ const Word = ({searchWord}) => {
                                 <>
                                     <p className="text-gray-300 mt-6 mb-2">Antonyms</p>
                                     <ul className="list-disc list-inside px-4 my-4">
-                                        {antonymSets.map(({antonyms, sense}) => (
-                                            <li className="my-2">
+                                        {antonymSets.map(({antonyms, sense}, index) => (
+                                            <li key={index} className="my-2">
                                                 <span className="text-gray-400">{sense}: </span>
                                                 <span>{antonyms.join(', ')}</span>
                                             </li>
@@ -117,18 +119,8 @@ const Word = ({searchWord}) => {
                                     </ul>
                                 </>
                             )}
-                        </>
+                        </div>
                     ))}
-
-                {/* <p className="text-gray-300 mt-6">Synonyms</p>
-                <p className="text-purple-500 px-4 my-4 font-bold">ironic: how unfortunate</p>
-                <ul className="list-disc list-inside px-4 my-4">
-                    <li className="my-2">damned</li>
-                    <li className="my-2">marvelous</li>
-                    <li className="my-2">just</li>
-                    <li className="my-2">intensifier</li>
-                    <li className="my-2">wonderful</li>
-                </ul> */}
             </section>
         </>
     );
