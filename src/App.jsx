@@ -10,6 +10,7 @@ const App = () => {
                     <Route path="/" element={<Navigate to="search/example" />} />
                     <Route path="/search/:word" element={<WordPage />} />
                     <Route path="/dictionary" element={<DictionaryPage />} />
+                    <Route path="/dictionary/:word" element={<DictionaryPage />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>

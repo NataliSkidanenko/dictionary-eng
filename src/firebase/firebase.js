@@ -1,6 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getAuth, GoogleAuthProvider, onAuthStateChanged} from 'firebase/auth';
-import {getFirestore, collection, getDocs, getDoc} from 'firebase/firestore';
+import {getFirestore} from 'firebase/firestore';
 
 const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY;
 const AUTH_DOMAIN = import.meta.env.VITE_FIREBASE_AUTH_DOMAIN;

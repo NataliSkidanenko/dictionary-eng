@@ -4,11 +4,10 @@ import {useAuth} from '../hooks/useAuth';
 
 const Header = () => {
     const {user, logIn, logOut} = useAuth();
-    console.log(user);
 
     return (
         <>
-            <div className="flex items-center bg-purple-100 text-purple-400 h-14 absolute top-0 left-0 w-full text-sm">
+            <div className="flex justify-center items-center bg-purple-100 text-purple-400 h-14 absolute top-0 left-0 w-full text-sm">
                 <div className="flex justify-between items-center w-full md:w-4/5 mx-5 md:mx-0 max-w-screen-xl">
                     {user != null ? (
                         <>
@@ -64,7 +63,7 @@ const Header = () => {
                                             ? 'hover:text-gray-500 text-gray-400'
                                             : 'hover:text-gray-500'
                                     }
-                                    to="/">
+                                    to="/search/example">
                                     Home
                                 </NavLink>
                             </li>
@@ -72,10 +71,10 @@ const Header = () => {
                                 <NavLink
                                     className={({isActive}) =>
                                         isActive
-                                            ? 'hover:text-gray-500 text-purple-500'
+                                            ? 'hover:text-gray-500 text-gray-400'
                                             : 'hover:text-gray-500'
                                     }
-                                    to="dictionary">
+                                    to="/dictionary">
                                     My Dictionary
                                 </NavLink>
                             </li>

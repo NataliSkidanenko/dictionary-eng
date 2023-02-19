@@ -1,6 +1,6 @@
 import {signInWithPopup, signOut} from 'firebase/auth';
 import {useEffect, useState} from 'react';
-import {googleAuthProvider, auth} from '../../firebase';
+import {googleAuthProvider, auth} from '../firebase/firebase';
 
 export const useAuth = () => {
     const [user, setUser] = useState(auth.currentUser);
@@ -23,6 +23,7 @@ export const useAuth = () => {
             })
             .catch((e) => console.log(e));
     };
+
     const logOut = () => {
         setUser(null);
         signOut(auth);

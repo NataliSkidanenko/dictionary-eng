@@ -1,18 +1,19 @@
-import {useState} from 'react';
+import {useCallback, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 const Search = () => {
     const [searchInputValue, setSearchInputValue] = useState('');
     const navigate = useNavigate();
 
-    const handleSearchInput = (ev) => {
+    const handleSearchInput = useCallback((ev) => {
         setSearchInputValue(ev.target.value);
-    };
+    });
 
-    const handleSearchForm = (ev) => {
+    const handleSearchForm = useCallback((ev) => {
+        ev.target.reset();
         ev.preventDefault();
         navigate(`/search/${searchInputValue.trim()}`);
-    };
+    });
 
     return (
         <>

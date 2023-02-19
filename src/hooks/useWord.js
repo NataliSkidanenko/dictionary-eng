@@ -1,10 +1,12 @@
 import {useEffect, useState} from 'react';
+import {isWordInDictionary} from '../firebase/firebase-helpers';
 
 const API_URL = 'https://lingua-robot.p.rapidapi.com/language/v1/entries/en/';
 
 export const useWord = (word) => {
     const [info, setInfo] = useState(null);
     const [loading, setLoading] = useState(true);
+
     const options = {
         method: 'GET',
         headers: {
