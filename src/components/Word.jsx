@@ -3,6 +3,7 @@ import {useAuth} from '../hooks/useAuth';
 import {useCallback, useEffect, useState} from 'react';
 import {addWordToFirebase} from '../firebase/firebase-helpers';
 import {useIsInDictionary} from '../hooks/useIsInDictionary';
+import Loading from './Loading';
 
 const Word = ({searchWord}) => {
     const {user, logIn} = useAuth();
@@ -24,7 +25,9 @@ const Word = ({searchWord}) => {
     });
 
     return loading ? (
-        <p>Loading...</p>
+        <div className="flex justify-center items-center py-20 ">
+            <Loading />
+        </div>
     ) : (
         <>
             <section>
@@ -32,7 +35,7 @@ const Word = ({searchWord}) => {
                     {word.toLowerCase()}
                 </h1>
                 {info.pronunciations &&
-                    info.pronunciations.reverse().map(({audio, context, transcriptions}, index) => (
+                    info.pronunciations.map(({audio, context, transcriptions}, index) => (
                         <>
                             <div
                                 key={index}
@@ -70,8 +73,8 @@ const Word = ({searchWord}) => {
 
                 <button
                     disabled={isInDictionary}
-                    onClick={handleAddToDictionary}
-                    className={`disabled:opacity-75 flex justify-center items-center w-full md:w-auto rounded-md   font-large leading-7    my-4 px-3.5 py-3 ${
+                    onClick={user ? handleAddToDictionary : logIn}
+                    className={`flex justify-center items-center w-full md:w-auto rounded-md   font-large leading-7    my-4 px-3.5 py-3 ${
                         isInDictionary
                             ? 'bg-green-100  text-green-500 hover:bg-green-200'
                             : 'bg-purple-100  text-purple-500 hover:bg-purple-200'

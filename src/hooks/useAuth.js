@@ -1,5 +1,5 @@
 import {signInWithPopup, signOut} from 'firebase/auth';
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {googleAuthProvider, auth} from '../firebase/firebase';
 
 export const useAuth = () => {
@@ -16,18 +16,18 @@ export const useAuth = () => {
         return unsubscribe;
     }, [auth]);
 
-    const logIn = () => {
+    const logIn = useCallback(() => {
         signInWithPopup(auth, googleAuthProvider)
             .then((credentials) => {
                 setUser(credentials.user);
             })
             .catch((e) => console.log(e));
-    };
+    });
 
-    const logOut = () => {
-        setUser(null);
+    const logOut = useCallback(() => {
         signOut(auth);
-    };
+        setUser(null);
+    });
 
     return {user, logIn, logOut};
 };

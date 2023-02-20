@@ -1,19 +1,15 @@
 import {useParams} from 'react-router';
-import Dictionary from '../components/Dictionary';
-import Header from '../components/Header';
-import Search from '../components/Search';
+import Dictionary from '../components/Dictionary/Dictionary';
 import Word from '../components/Word';
 
 const DictionaryPage = () => {
     const {word} = useParams();
 
     return (
-        <>
-            <Header />
-            <Search />
+        <div className="min-h-screen">
             <Dictionary />
             {word && <Word searchWord={word} />}
-        </>
+        </div>
     );
 };
 
