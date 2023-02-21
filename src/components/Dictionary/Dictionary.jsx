@@ -2,7 +2,7 @@ import {useNavigate} from 'react-router';
 import {useAuth} from '../../hooks/useAuth';
 import {useMyDictionary} from '../../hooks/useMyDictionary';
 import InfoImgButton from '../common/InfoImgButton';
-import Loading from '../Loading';
+import Loading from '../common/Loading';
 import WordList from './WordList';
 
 const Dictionary = () => {
@@ -10,7 +10,11 @@ const Dictionary = () => {
     const {myDictionary, loading} = useMyDictionary(user);
     const navigate = useNavigate();
 
-    return user ? (
+    return loading ? (
+        <div className="flex justify-center items-center py-20 ">
+            <Loading />
+        </div>
+    ) : user ? (
         myDictionary.length > 0 ? (
             <WordList dictionary={myDictionary} />
         ) : (

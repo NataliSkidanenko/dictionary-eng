@@ -1,5 +1,6 @@
 import {
     collection,
+    deleteDoc,
     doc,
     getDoc,
     getDocs,
@@ -21,6 +22,11 @@ export const addWordToFirebase = async (userId, word) => {
         },
         {merge: true}
     );
+};
+
+export const removeWordFromFirebase = async (userId, word) => {
+    const ref = doc(db, 'users', userId, 'dictionary', word);
+    await deleteDoc(ref);
 };
 
 export const getUserDictionaryFromFirebase = async (user) => {

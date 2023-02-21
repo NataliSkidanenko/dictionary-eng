@@ -1,5 +1,5 @@
 import {useParams} from 'react-router-dom';
-import Word from '../components/Word';
+import Word from '../components/Word/Word';
 
 const WordPage = () => {
     const {word} = useParams();

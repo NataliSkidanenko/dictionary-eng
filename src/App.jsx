@@ -1,8 +1,9 @@
 import {Navigate, Route, Routes, useNavigate} from 'react-router-dom';
 import WordPage from './page/WordPage';
 import DictionaryPage from './page/DictionaryPage';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import MainLayout from './page/MainLayout';
+import Page404 from './page/Page404';
 
 const App = () => {
     return (
@@ -15,7 +16,7 @@ const App = () => {
                     <Route path="/search/:word" element={<WordPage />} />
                     <Route path="/dictionary" element={<DictionaryPage />} />
                     <Route path="/dictionary/:word" element={<DictionaryPage />} />
-                    <Route path="*" element={<Navigate to="/" />} />
+                    <Route path="*" element={<Page404 />} />
                 </Route>
             </Routes>
             {/* </div>

@@ -1,6 +1,6 @@
 import {useParams} from 'react-router';
 import Dictionary from '../components/Dictionary/Dictionary';
-import Word from '../components/Word';
+import Word from '../components/Word/Word';
 
 const DictionaryPage = () => {
     const {word} = useParams();
