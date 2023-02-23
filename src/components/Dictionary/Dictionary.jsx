@@ -20,7 +20,7 @@ const Dictionary = () => {
         ) : (
             <InfoImgButton
                 title="Your dictionary is empty"
-                imgSrc="/dictionary-empty.png"
+                imgSrc="./dictionary-empty.png"
                 imgAlt="Dictionary is empty"
                 handlerButton={() => {
                     navigate('/');
@@ -31,7 +31,7 @@ const Dictionary = () => {
     ) : (
         <InfoImgButton
             title="Log in to have access to your dictionary"
-            imgSrc="/dictionary-empty.png"
+            imgSrc="./dictionary-empty.png"
             imgAlt="Welcome"
             handlerButton={logIn}
             textButton="Log in"

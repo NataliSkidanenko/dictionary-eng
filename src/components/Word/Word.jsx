@@ -203,7 +203,7 @@ const Word = ({searchWord}) => {
     ) : (
         <InfoImgButton
             title={`The word ${word} was not found in the dictionary`}
-            imgSrc="/not-found.png"
+            imgSrc="./not-found.png"
             imgAlt="Word not found"
             handlerButton={() => {
                 navigate('/');

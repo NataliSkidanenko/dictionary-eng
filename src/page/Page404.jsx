@@ -7,7 +7,7 @@ const Page404 = () => {
     return (
         <InfoImgButton
             title="This page does not exist"
-            imgSrc="/error.png"
+            imgSrc="./error.png"
             imgAlt="This page does not exist"
             handlerButton={() => {
                 navigate('/');
